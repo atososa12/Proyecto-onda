@@ -27,7 +27,6 @@ CREATE TABLE trayecto (
 );
 
 
-
 CREATE TABLE relato (
 id_relato INT AUTO_INCREMENT PRIMARY KEY,
 contenido TEXT,
