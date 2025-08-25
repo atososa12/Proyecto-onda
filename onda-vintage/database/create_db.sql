@@ -26,11 +26,7 @@ CREATE TABLE trayecto (
     FOREIGN KEY (agencia_id) REFERENCES agencia(id)
 );
 
-CREATE TABLE periodo (
-id_periodo INT AUTO_INCREMENT PRIMARY KEY,
-año_apertura YEAR,
-año_cierre YEAR
-);
+
 
 CREATE TABLE relato (
 id_relato INT AUTO_INCREMENT PRIMARY KEY,
