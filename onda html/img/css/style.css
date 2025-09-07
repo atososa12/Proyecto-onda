@@ -11,22 +11,17 @@ body {
   margin: 0;
   padding-top: 90px; 
 }
-h3 {
-  color: white;
-  text-shadow: 2px 2px 8px  rgba(228, 126, 126, 0.5);
-  font-size: 48px;
-}
 
 /* Header */
 header {
-  position: absolute;
+  position:fixed;
   top: 0;
   left: 0;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #18177c;
+  background: #4a47df;
   padding: 15px 40px;
   z-index: 10;
 }
@@ -54,7 +49,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-  background: #2a27cc;
+  background: #18177c;
   border-radius: 5px;
 }
 
@@ -64,7 +59,7 @@ nav ul li ul {
   position: absolute;
   top: 100%;
   left: 0;
-  background: #18177c;
+  background:#4a47df;
   padding: 10px 0;
   border-radius: 5px;
 }
@@ -125,47 +120,9 @@ nav ul li ul li a {
 }
 
 
-/* Galeria perris */
-.galeria {
-  padding: 60px 20px;
-  text-align: center;
-}
-
-.galeria h2 {
-  font-size: 36px;
-  margin-bottom: 40px;
-}
-
-.galeria .imagenes {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-}
-
-.galeria .imagen {
-  flex: 1 1 250px;
-  max-width: 300px;
-  border-radius: 10px;
-  overflow: hidden;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.galeria .imagen img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  display: block;
-}
-
-.galeria .imagen:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 20px rgba(255, 0, 0, 0.5);
-}
-
 /* Footer */
 footer {
-  background: #18177c;
+  background: #4a47df;
   text-align: center;
   padding: 20px;
   font-size: 14px;
