@@ -1,92 +1,64 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proyecto Onda</title>
-    <link href="style.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proyecto Onda</title>
+  <link href="style.css" rel="stylesheet">
 </head>
 <body>
-    <header>
-     <img src="img/Logo.png" alt="Logo ONDA">
-     <div class="header-botones">
-    <button class="btn-blanco">Qué es Onda</button>
-    <button class="btn-rojo">Mira las Historias</button>
-    </div>
+  <!-- HEADER -->
+  <header>
+    <img src="./Logo.png" alt="Logo ONDA">
+    <nav>
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li>
+          <a href="#info">Quiénes somos</a>
+          <ul>
+            <li><a href="#historia">Historia</a></li>
+            <li><a href="#galeria">Galería</a></li>
+            <li><a href="#trayectoria">Trayectoria</a></li>
+          </ul>
+        </li>
+        <li><a href="#agencias">Agencias</a></li>
+        <li><a href="#rutas">Rutas</a></li>
+        <li><a href="#omnibus">Ómnibus</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-texto">
-      <h1>Conectando destinos de Uruguay</h1>
-      <p>Explorá la historia, legado y futuro de ONDA, la empresa de transporte que conecta generaciones.</p>
-      <div class="hero-botones">
-        <button id="historia" class="btn-rojo">Mira las Historias</button>
-        <button id="galeria" class="btn-blanco">Qué es Onda</button>
-      </div>
-    </div>
-    <div class="hero-img">
-       <img src="img/bus.png" alt="Bus ONDA" class="bus-outline">
-    </div>
-  </section>
+ <!-- Foto fondo -->
+    <section class="hero">
+  <img src="IMG_12.jpg" alt="Foto de fondo">
 
-  <!-- LEGADO -->
-  <section class="legado">
-    <img src="img/legado.png" alt="Bus antiguo">
-    <div>
-      <h2>Nuestro legado</h2>
-      <p>Más que una empresa de transporte, ONDA fue un símbolo de modernidad, innovacion y convexion entre uruguayos.</p>
-      <p>Conoce su historia y su impacto en la vida cotidiana del siglo XX.</p>
-      <div class="legado-botones">
-        <button class="btn-blanco">Historia</button>
-        <button class="btn-blanco">Galería</button>
-        <button class="btn-blanco">Patrimonio</button>
-      </div>
-    </div>
-  </section>
+  <div class="hero-text">
+    <h1>Conectando destinos en</h1>
+    <h2>Uruguay</h2>
+    <button>Conozca más</button>
+  </div>
+</section>
 
   <!-- GALERÍA -->
   <section id="galeria" class="galeria">
-    <h2>Galería ONDA - Una mirada al pasado sobre ruedas</h2>
-    <p>Recorre las distintas decadas de historia de ONDA a traves de sus omnibus, que acompañaron a generaciones de uruguayos desde 1935 hasta el 1991</p>
-    <div class="cards">
-      <div class="card">
-        <img src="img/galeria1.png" alt="Década 1950">
-        <h3>Década de 1930</h3>
-        <h5>Bus de los años 30</h5>
-        <p>Primeras unidades nacionales en rutas interdepartamentales.</p>
-      </div>
-
-      <div class="card">
-        <img src="img/galeria2.png" alt="Década 1960">
-        <h3>Década de 1950</h3>
-        <h5>Bus de los años 50</h5>
-        <p>Expansion y consolidacion como icono de transporte</p>
-    </div>
-
-      <div class="card">
-        <img src="img/galeria3.png" alt="Década 1970">
-        <div><h3>Década de 1970</h3>
-        <h5>Bus de los años 70</h5>
-        <p>Ultimos modelos con  mejor confort y diseño</p>
-        </div>
-      </div>
+    <h3>Nuestra Galería</h3>
+    <div class="imagenes">
+      <div class="imagen"><img src="IMG_1.peg" alt="Imagen 1"></div>
+      <div class="imagen"><img src="IMG_2.jpeg" alt="Imagen 2"></div>
+      <div class="imagen"><img src="IMG_3.jpeg" alt="Imagen 3"></div>
+      <div class="imagen"><img src="IMG_4.jpeg" alt="Imagen 4"></div>
+      <div class="imagen"><img src="IMG_5.jpeg" alt="Imagen 5"></div>
+      <div class="imagen"><img src="IMG_6.jpeg" alt="Imagen 6"></div>
     </div>
   </section>
 
-  <!-- HISTORIAS -->
-  <section id="historia" class="historias">
-    <h2>Historias de ruta</h2>
-    <p>Camino a Rivera (1953)</p>
-    <p>El 16 de mayo de 1953, ONDA inauguró la línea Montevideo–Rivera. Familias esperaban el ómnibus con ilusiones, que llegaba tras más de 10 horas de viaje.</p>
-    <p>Cuando el galgo unió fronteras</p>
-    <p>Con buses hacia Buenos Aires y Porto Alegre, ONDA cruzó fronteras: una de sus rutas terrestres fue la segunda más rápida del mundo.</p>
-</section>
-
   <!-- FOOTER -->
   <footer>
-    <p>©2025 - Sitio desarollado por estudiantes para el dia del patrimonio </p>
+    <p>©2025 - Sitio desarrollado por estudiantes para el Día del Patrimonio</p>
   </footer>
+  <script src="script.js"></script>
 
 </body>
 </html>
+
