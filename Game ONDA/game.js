@@ -218,7 +218,7 @@ function showLoadingScreen() {
     ctx.fillText("Cargando imágenes...", canvas.width/2, canvas.height/2);
   } else {
     const lines = [
-      "Para rendir homenaje a los pilotos de ONDA,",
+      "Para rendir homenaje a los choferes de ONDA,",
       "intenta evitar todos los obstáculos en este juego.",
       "Presiona ENTER o haz click para iniciar"
     ];
