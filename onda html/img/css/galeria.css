@@ -1,6 +1,6 @@
 h3 {
   color: white;
-  text-shadow: 2px 2px 8px rgba(228, 126, 126, 0.5);
+  text-shadow: 2px 2px 8px rgba(7, 64, 187, 0.5);
   font-size: 48px;
   text-align: center;
 }
@@ -16,7 +16,7 @@ h3 {
 
 
 .card {
-  background: #4a47df;
+  background: rgb(151, 146, 146);
   border-radius: 15px;
   overflow: hidden;
   width: 200px;

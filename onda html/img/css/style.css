@@ -104,6 +104,11 @@ nav ul li ul li a {
   margin: 15px 0;
 }
 
+.hero-text a{
+color:white;
+text-decoration: none;
+}
+
 .hero-text button {
   background: red;
   color: white;
