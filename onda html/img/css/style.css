@@ -14,14 +14,14 @@ body {
 
 /* Header */
 header {
-  position:fixed;
+  position:absolute;
   top: 0;
   left: 0;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #4a47df;
+  background: #0033668f;
   padding: 15px 40px;
   z-index: 10;
 }
@@ -49,7 +49,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-  background: #18177c;
+  background: #0e649e;
   border-radius: 5px;
 }
 
@@ -59,7 +59,7 @@ nav ul li ul {
   position: absolute;
   top: 100%;
   left: 0;
-  background:#4a47df;
+  background: #0033668f;
   padding: 10px 0;
   border-radius: 5px;
 }
@@ -142,7 +142,7 @@ canvas {
 
 /* Footer */
 footer {
-  background: #4a47df;
+  background: #0033668f;
   text-align: center;
   padding: 20px;
   font-size: 14px;
