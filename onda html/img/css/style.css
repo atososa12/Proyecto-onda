@@ -124,27 +124,6 @@ text-decoration: none;
   background: darkred;
 }
 
-/* Juego
-canvas {
-  background: #555; 
-  border: 3px solid white;
-  position: relative;
-  display: flex;
-  justify-content: center; centra horizontal */
-  
-canvas {
-  background: #555; 
-  border: 3px solid white;
-  top: 0;
-  left: 0;
-  width: 60vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center; /* centra horizontal */
-  align-items: center;     /* centra vertical */
-  pointer-events: none;    /* opcional: permite hacer clic en elementos de abajo si los hay */
-}
-
 /* Footer */
 footer {
   background: #0033668f;

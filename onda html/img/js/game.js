@@ -85,10 +85,10 @@ const assets = {
   muted: false,
 };
 
-assets.images.bus.src = "img/bus.png";
-assets.images.autoRed.src = "img/auto_rojo.png";
-assets.images.autoBlue.src = "img/auto_azul.png";
-assets.images.pista.src = "img/Pista.png";
+assets.images.bus.src = "imgJuegos/bus.png";
+assets.images.autoRed.src = "imgJuegos/auto_rojo.png";
+assets.images.autoBlue.src = "imgJuegos/auto_azul.png";
+assets.images.pista.src = "imgJuegos/Pista.png";
 
 assets.sounds.crash.volume = 0.5;
 assets.sounds.point.volume = 0.3;
