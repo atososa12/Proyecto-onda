@@ -1,0 +1,155 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: white;
+  background: #c9c0c0;
+  margin: 0;
+  padding-top: 90px; 
+}
+
+/* Header */
+header {
+  position:absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #0033668f;
+  padding: 15px 40px;
+  z-index: 10;
+}
+
+header img {
+  height: 50px;
+}
+/* Nav */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+nav ul li {
+  position: relative;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 8px 12px;
+  transition: 0.3s;
+}
+
+nav ul li a:hover {
+  background: #0e649e;
+  border-radius: 5px;
+}
+
+
+nav ul li ul {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #0033668f;
+  padding: 10px 0;
+  border-radius: 5px;
+}
+
+nav ul li:hover ul {
+  display: block;
+}
+
+nav ul li ul li a {
+  display: block;
+}
+/*Fotito + conectando destinos*/
+.hero {
+  position: relative;
+  height: 100vh; 
+  overflow: hidden;
+}
+
+.hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hero-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  text-shadow: 2px 2px 8px black;
+}
+
+.hero-text h1 {
+  font-size: 48px;
+}
+
+.hero-text h2 {
+  font-size: 32px;
+  margin: 15px 0;
+}
+
+.hero-text a{
+color:white;
+text-decoration: none;
+}
+
+.hero-text button {
+  background: red;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  font-size: 18px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.hero-text button:hover {
+  background: darkred;
+}
+
+/* Juego
+canvas {
+  background: #555; 
+  border: 3px solid white;
+  position: relative;
+  display: flex;
+  justify-content: center; centra horizontal */
+  
+canvas {
+  background: #555; 
+  border: 3px solid white;
+  top: 0;
+  left: 0;
+  width: 60vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center; /* centra horizontal */
+  align-items: center;     /* centra vertical */
+  pointer-events: none;    /* opcional: permite hacer clic en elementos de abajo si los hay */
+}
+
+/* Footer */
+footer {
+  background: #0033668f;
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+}
+
