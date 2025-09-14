@@ -7,7 +7,7 @@
 body {
   font-family: Arial, sans-serif;
   color: white;
-  background: #c9c0c0;
+  background: antiquewhite;
   margin: 0;
   padding-top: 90px; 
 }
@@ -146,4 +146,3 @@ footer {
   padding: 20px;
   font-size: 14px;
 }
-

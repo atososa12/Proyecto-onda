@@ -1,11 +1,7 @@
 h1{
-    font-size: 48px;
+  color:red;
+  font-size: 48px;
   text-align: center;
-  text-shadow: 2px 2px 8px black;
-}
-h2{
-  text-align: center;
-  color:#4a47df;
 }
 
 #historia p {
@@ -34,4 +30,26 @@ h2{
   border:#C0C0C0; 
   margin-left: 100px;
 }
+
+.primer-bus {
+  display: flex;             
+  justify-content: center;   
+}
+
+.primer-bus p {
+  display: flex;             
+  align-items: center;       
+  gap: 15px;                 
+  border: 2px solid #C0C0C0; 
+  padding: 10px;
+  line-height: 1.5;
+  background-color: rgb(228, 99, 99);
+}
+
+.primer-bus img {
+  max-width: 200px;          
+  height: auto;
+  border-radius: 5px;   
+}
+
 
