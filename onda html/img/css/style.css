@@ -146,3 +146,108 @@ footer {
   padding: 20px;
   font-size: 14px;
 }
+
+/* BODY GENERAL */
+body {
+  font-family: Arial, sans-serif;
+  color: white;
+  background: antiquewhite;
+  margin: 0;
+  padding-top: 90px;
+  font-size: 16px;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+/* IMÁGENES GENERALES */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* BOTONES GENERALES */
+button, .btn-juego {
+  width: auto;
+  max-width: 100%;
+  font-size: 1rem;
+  padding: 0.7rem 1.5rem;
+}
+
+/* HERO TEXT */
+.hero-text h1 {
+  font-size: 3rem;
+}
+
+.hero-text h2 {
+  font-size: 2rem;
+}
+
+/* PÁRRAFOS GENERALES */
+p {
+  margin-left: 0;
+  margin-right: 0;
+  font-size: 1rem;
+}
+
+/* === MEDIA QUERIES BÁSICAS === */
+
+/* Celulares hasta 768px */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;        /* texto más pequeño */
+    padding-left: 3%;       /* márgenes más chicos */
+    padding-right: 3%;
+    padding-top: 70px;      /* ajusta header si es más pequeño */
+  }
+
+  header {
+    flex-direction: column;  /* header vertical */
+    align-items: flex-start;
+    padding: 10px 20px;
+  }
+
+  header img {
+    height: 40px;           /* logo más pequeño */
+    margin-bottom: 10px;
+  }
+
+  nav ul {
+    flex-direction: column;  /* menú vertical */
+    width: 100%;
+    gap: 10px;
+  }
+
+  nav ul li a {
+    font-size: 0.9rem;
+    padding: 8px 10px;
+  }
+}
+
+/* Tablets entre 769px y 1024px */
+@media (min-width: 769px) and (max-width: 1024px) {
+  body {
+    font-size: 15px;        /* tamaño intermedio */
+    padding-left: 4%;
+    padding-right: 4%;
+    padding-top: 80px;
+  }
+
+  header {
+    flex-direction: row;    /* header horizontal */
+    padding: 15px 30px;
+  }
+
+  header img {
+    height: 45px;
+  }
+
+  nav ul {
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  nav ul li a {
+    font-size: 1rem;
+  }
+}
