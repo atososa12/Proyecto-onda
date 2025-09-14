@@ -124,6 +124,21 @@ text-decoration: none;
   background: darkred;
 }
 
+.btn-juego{
+  background: red;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  font-size: 18px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-juego a{
+color:white;
+text-decoration: none;
+}
+
 /* Footer */
 footer {
   background: #0033668f;
