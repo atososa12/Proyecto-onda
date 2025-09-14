@@ -22,9 +22,36 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("sss", $titulo, $fecha, $relato);
 
-    if ($stmt->execute()) {
-        echo "<p> Relato guardado correctamente</p>";
+     if (!empty($titulo) && !empty($relato)) {
+        // Consulta preparada
+        $sql = "INSERT INTO historia (titulo, fecha, relato) VALUES (?, ?, ?)";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("sss", $titulo, $fecha, $relato);
+
+        if ($stmt->execute()) {
+            echo "<!DOCTYPE html>
+            <html lang='es'>
+            <head>
+                <meta charset='UTF-8'>
+                <title>Relato guardado</title>
+            </head>
+            <body>
+                <h1>¡Gracias por compartir tu relato sobre ONDA!</h1>
+                <p><strong>Título:</strong> " . htmlspecialchars($titulo) . "</p>
+                <p><strong>Fecha:</strong> " . $fecha . "</p>
+                <p><strong>Relato:</strong><br>" . nl2br(htmlspecialchars($relato)) . "</p>
+            </body>
+            </html>";
+        } else {
+            echo "<p>Error al guardar el relato: " . $conn->error . "</p>";
+        }
+
+        $stmt->close();
     } else {
-        echo "<p> Error, relato no guardado: " . $conn->error . "</p>";
+        echo "<p>Por favor completá todos los campos.</p>";
     }
 }
+
+$conn->close();
+?>
+        
