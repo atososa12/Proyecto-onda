@@ -1,88 +1,117 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Bus Game</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet" />
- <link href="./css/style.css" rel="stylesheet">
- <link href="./css/juego.css" rel="stylesheet">
-</head>
-<body>
-  <header>
-
-  <img src="img/Logo.png" alt="Logo ONDA">
-    <nav>
-      <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li>
-          <a href="historia.html">Quiénes somos</a>
-          <ul>
-            <li><a href="historia.html#historia">Historia</a></li>
-            <li><a href="historia.html#perazza">Eloy Perazza</a></li>
-          </ul>
-        </li> 
-        <li>
-           <li><a href="galeria.html">Galería</a></li>
-        <li>
-          <a href="#recorrido">Trayectos</a>
-          <ul>
-        <li><a href="#agencias">Agencias</a></li>
-        <li><a href="#rutas">Rutas</a></li>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Bus Game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <link href="./css/style.css" rel="stylesheet" />
+    <link href="./css/juego.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header>
+      <img src="img/Logo.png" alt="Logo ONDA" />
+      <nav>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li>
+            <a href="historia.html">Quiénes somos</a>
+            <ul>
+              <li><a href="historia.html#historia">Historia</a></li>
+              <li><a href="historia.html#perazza">Eloy Perazza</a></li>
+            </ul>
+          </li>
+          <li></li>
+          <li><a href="galeria.html">Galería</a></li>
+          <li>
+            <a href="#recorrido">Trayectos</a>
+            <ul>
+              <li><a href="#agencias">Agencias</a></li>
+              <li><a href="#rutas">Rutas</a></li>
+            </ul>
+          </li>
+          <li><a href="#omnibus">Ómnibus</a></li>
+          <li><a href="#relatos">Relatos</a></li>
+          <li><a href="juego.html">¡Juega con ONDA!</a></li>
         </ul>
-        </li>
-        <li><a href="#omnibus">Ómnibus</a></li>
-        <li><a href="#relatos">Relatos</a></li>
-        <li><a href="juego.html">¡Juega con ONDA!</a></li>
-      </ul>
-    </nav>
-</header>
+      </nav>
+    </header>
 
-  <div id="hud" aria-hidden="false" role="group" aria-label="Panel de juego">
-    <div id="stats" class="pill" role="status" aria-live="polite">
-      <span>Puntos:</span> <b id="scoreText">0</b>
-      <span>Tiempo:</span> <b id="timeText">1:30</b>
-    </div>
-    <div id="controls" class="pill">
-      <button id="startBtn" class="success" title="Iniciar juego">Iniciar</button>
-      <button id="pauseBtn" class="ghost" title="Pausar o reanudar">Pausa</button>
-      <button id="restartBtn" class="accent2" title="Reiniciar">Reiniciar</button>
-      <button id="muteBtn" class="ghost" aria-pressed="false" title="Silenciar sonido">🔊</button>
-    </div>
-  </div>
-
-  <div id="menu" role="dialog" aria-modal="true" aria-labelledby="menuTitle">
-    <div class="panel">
-      <h2 id="menuTitle">🚍 Bus Game</h2>
-      <p>Evita los autos y sobrevive 1:30. Usa flechas o los controles táctiles.</p>
-      <div class="row">
-        <button id="menuStart" class="success">Jugar</button>
-        <button id="menuHow" class="ghost">Cómo jugar</button>
-        <button id="menuCredits" class="ghost">Créditos</button>
+    <div id="hud" aria-hidden="false" role="group" aria-label="Panel de juego">
+      <div id="stats" class="pill" role="status" aria-live="polite">
+        <span>Puntos:</span> <b id="scoreText">0</b> <span>Tiempo:</span>
+        <b id="timeText">1:30</b>
       </div>
-      <div id="menuInfo" style="margin-top:12px; color:var(--muted); font-size:14px;">
-        Presiona Enter para comenzar. Click o Enter para reiniciar al finalizar.
+      <div id="controls" class="pill">
+        <button id="startBtn" class="success" title="Iniciar juego">
+          Iniciar
+        </button>
+        <button id="pauseBtn" class="ghost" title="Pausar o reanudar">
+          Pausa
+        </button>
+        <button id="restartBtn" class="accent2" title="Reiniciar">
+          Reiniciar
+        </button>
+        <button
+          id="muteBtn"
+          class="ghost"
+          aria-pressed="false"
+          title="Silenciar sonido"
+        >
+          🔊
+        </button>
       </div>
     </div>
-  </div>
 
-  <div id="mobilePad" aria-label="Controles táctiles" role="group">
-    <div class="pad-btn" id="leftBtn" aria-label="Izquierda">◀</div>
-    <div class="pad-btn" id="upBtn" aria-label="Arriba">▲</div>
-    <div class="pad-btn" id="downBtn" aria-label="Abajo">▼</div>
-    <div class="pad-btn" id="rightBtn" aria-label="Derecha">▶</div>
-  </div>
+    <div id="menu" role="dialog" aria-modal="true" aria-labelledby="menuTitle">
+      <div class="panel">
+        <h2 id="menuTitle">🚍 Bus Game</h2>
+        <p>
+          Evita los autos y sobrevive 1:30. Usa flechas o los controles
+          táctiles.
+        </p>
+        <div class="row">
+          <button id="menuStart" class="success">Jugar</button>
+          <button id="menuHow" class="ghost">Cómo jugar</button>
+          <button id="menuCredits" class="ghost">Créditos</button>
+        </div>
+        <div
+          id="menuInfo"
+          style="margin-top: 12px; color: var(--muted); font-size: 14px"
+        >
+          Presiona Enter para comenzar. Click o Enter para reiniciar al
+          finalizar.
+        </div>
+      </div>
+    </div>
 
-  <div id="toast" role="status" aria-live="polite"></div>
+    <div id="mobilePad" aria-label="Controles táctiles" role="group">
+      <div class="pad-btn" id="leftBtn" aria-label="Izquierda">◀</div>
+      <div class="pad-btn" id="upBtn" aria-label="Arriba">▲</div>
+      <div class="pad-btn" id="downBtn" aria-label="Abajo">▼</div>
+      <div class="pad-btn" id="rightBtn" aria-label="Derecha">▶</div>
+    </div>
 
-  <div id="gameWrap">
-    <canvas id="gameCanvas" aria-label="Juego de evitar obstáculos con un bus" role="img"></canvas>
-  </div>
+    <div id="toast" role="status" aria-live="polite"></div>
 
-  <footer>© 2025 — Homenaje a los choferes de ONDA</footer>
+    <div id="gameWrap">
+      <canvas
+        id="gameCanvas"
+        aria-label="Juego de evitar obstáculos con un bus"
+        role="img"
+      ></canvas>
+    </div>
 
-  <script src="js/game.js"></script>
-</body>
+    <footer>© 2025 — Homenaje a los choferes de ONDA</footer>
+
+    <script src="js/game.js"></script>
+  </body>
 </html>
