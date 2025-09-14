@@ -1,10 +1,20 @@
 h3 {
-  color: white;
-  text-shadow: 2px 2px 8px rgba(7, 64, 187, 0.5);
+  color: red;
   font-size: 48px;
   text-align: center;
 }
-
+.intro-galeria {
+  font-size: 1.2rem;             
+  color: #fff;                    
+  background:  rgb(228, 35, 35); 
+  padding: 12px 20px;             
+  border-radius: 12px;           
+  text-align: center;             
+  margin: 20px auto;             
+  margin-left: 30px;
+  margin-right: 30px;
+  font-weight: 500;              
+}
 
 .galeria {
   display: flex;
