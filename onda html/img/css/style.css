@@ -147,48 +147,6 @@ footer {
   font-size: 14px;
 }
 
-/* BODY GENERAL */
-body {
-  font-family: Arial, sans-serif;
-  color: white;
-  background: antiquewhite;
-  margin: 0;
-  padding-top: 90px;
-  font-size: 16px;
-  padding-left: 5%;
-  padding-right: 5%;
-}
-
-/* IMÁGENES GENERALES */
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* BOTONES GENERALES */
-button, .btn-juego {
-  width: auto;
-  max-width: 100%;
-  font-size: 1rem;
-  padding: 0.7rem 1.5rem;
-}
-
-/* HERO TEXT */
-.hero-text h1 {
-  font-size: 3rem;
-}
-
-.hero-text h2 {
-  font-size: 2rem;
-}
-
-/* PÁRRAFOS GENERALES */
-p {
-  margin-left: 0;
-  margin-right: 0;
-  font-size: 1rem;
-}
 
 /* === MEDIA QUERIES BÁSICAS === */
 
