@@ -15,12 +15,13 @@ if ($conn->connect_error) {
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $titulo = $_POST["titulo"];
     $relato = $_POST["relato"];
-    $fecha = date("Y-m-d");
+    $fecha = $_POST["fecha"];//la que elige el cliente
+    $nombre = $_POST["nombre"];
 
-    $sql = "INSERT INTO historia (titulo, fecha, relato) 
+    $sql = "INSERT INTO historia (titulo, fecha, relato,nombre) 
             VALUES (?, ?, ?)";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("sss", $titulo, $fecha, $relato);
+    $stmt->bind_param("sss", $titulo, $fecha, $relato,$nombre);
 
     if ($stmt->execute()) {
         echo "<p> Relato guardado correctamente</p>";
