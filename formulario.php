@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $stmt->bind_param("sss", $titulo, $fecha, $relato,$nombre);
 
     if ($stmt->execute()) {
-        echo "<p> Relato guardado correctamente</p>";
+        echo "<p> Relato compartido correctamente</p>";
     } else {
         echo "<p> Error, relato no guardado: " . $conn->error . "</p>";
     }
