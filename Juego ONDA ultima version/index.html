@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Bus Game</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header aria-hidden="true">
+    <h1>🚍 ONDA-Bus Game</h1>
+  </header>
+
+  <div id="hud" role="group" aria-label="Panel de juego">
+    <div id="stats" class="pill" role="status" aria-live="polite">
+      <span>Puntos:</span> <b id="scoreText">0</b>
+      <span>Tiempo:</span> <b id="timeText">1:30</b>
+    </div>
+    <div id="controls" class="pill">
+      <button id="startBtn" class="success">Iniciar</button>
+      <button id="pauseBtn" class="ghost">Pausa</button>
+      <button id="restartBtn" class="accent2">Reiniciar</button>
+      <button id="muteBtn" class="ghost" aria-pressed="false">🔊</button>
+    </div>
+  </div>
+
+  <div id="menu" role="dialog" aria-modal="true" aria-labelledby="menuTitle">
+    <div class="panel">
+      <h2 id="menuTitle">🚍 ONDA-Bus Game</h2>
+      <p>Evita los autos y sobrevive 1:30. Usa flechas o los controles táctiles.</p>
+      <div class="row">
+        <button id="menuStart" class="success">Jugar</button>
+        <button id="menuHow" class="ghost">Cómo jugar</button>
+        <button id="menuCredits" class="ghost">Créditos</button>
+      </div>
+      <div id="menuInfo" style="margin-top:12px; color:var(--muted); font-size:14px;">
+        Presiona Enter para comenzar. Click o Enter para reiniciar al finalizar.
+      </div>
+    </div>
+  </div>
+
+  <div id="creditsPanel" role="dialog" aria-modal="true" aria-labelledby="creditsTitle" style="display:none;">
+    <div class="panel">
+      <h2 id="creditsTitle">🎖 Créditos</h2>
+      <p>Desarrollado por <strong>Antonella SOSSA, Vanessa RINALDI, Nicolas CHACAL y Jean-Pierre DOSSOU</strong></p>
+      <p>Inspirado por los choferes de <strong>ONDA</strong>, símbolo de dedicación y resistencia.</p>
+      <p>Agradecimientos especiales:</p>
+      <ul>
+        <li>Los Compañeros de TA2</li>
+        <li>La Dirección y los Profesores del INSTITUTO TECNOLÓGICO SUPERIOR BUCEO</li>
+        <li>La Familia Perazza</li>
+      </ul>
+      <p>Este juego es un homenaje a quienes recorren caminos todos los días.  
+      ¡Gracias por jugar! 🚍</p>
+      <button id="closeCredits" class="ghost" style="margin-top:12px;">Volver</button>
+    </div>
+  </div>
+
+  <div id="mobilePad" aria-label="Controles táctiles" role="group">
+    <div class="pad-btn" id="leftBtn" aria-label="Izquierda">◀</div>
+    <div class="pad-btn" id="upBtn" aria-label="Arriba">▲</div>
+    <div class="pad-btn" id="downBtn" aria-label="Abajo">▼</div>
+    <div class="pad-btn" id="rightBtn" aria-label="Derecha">▶</div>
+  </div>
+
+  <div id="toast" role="status" aria-live="polite"></div>
+
+  <div id="gameWrap">
+    <canvas id="gameCanvas" aria-label="Juego de evitar obstáculos con un bus" role="img"></canvas>
+  </div>
+
+  <footer>© 2025 — Homenaje a los choferes de ONDA</footer>
+
+  <script src="game.js"></script>
+</body>
+</html>
