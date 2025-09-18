@@ -1,0 +1,167 @@
+h1 {
+  color: whitesmoke;
+  font-size: 48px;
+  text-align: center;
+  -webkit-text-stroke: 2px red; 
+}
+
+
+h4{
+  color:red;
+  font-size: 28px;
+  text-align: center;
+  font-style: italic;
+}
+
+#historia p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  text-align: justify;
+  margin-bottom: 20px;
+  margin-left: 100px;   
+  margin-right: 100px;  
+  padding: 18px;
+  background: #C0C0C0; 
+  border-radius: 10px;
+  color:rgba(0, 0, 0, 0.705);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+}
+
+.carta {
+  display: flex;     
+  gap: 10px;          
+  justify-content: center; 
+}
+
+.carta img {
+  width: 600px;      
+  height: auto;       
+  border:#C0C0C0; 
+  margin-left: 100px;
+}
+.img-parrafo {
+  display: flex;
+  align-items: center; 
+  gap: 10px; 
+}
+
+.img-parrafo img {
+  max-width: 150px;   
+  height: auto;
+  border-radius: 5px; 
+}
+
+.primer-bus {
+  display: flex;             
+  justify-content: center;   
+}
+
+.primer-bus p {
+  display: flex;             
+  align-items: center;       
+  gap: 15px;                 
+  border: 2px solid #C0C0C0; 
+  padding: 10px;
+  line-height: 1.5;
+  background-color: rgb(228, 99, 99);
+}
+
+.primer-bus img {
+  max-width: 200px;          
+  height: auto;
+  border-radius: 5px;   
+}
+
+.frase-perazza{
+  color:red;
+  font-weight: bold;
+  font-style:italic;
+}
+
+.carrusel {
+  position: relative;
+  width: 600px;
+  max-width: 100%;
+  margin: auto;
+  overflow: hidden;
+}
+
+.carrusel-inner {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.carrusel-inner img {
+  width: 100%;
+  height: 400px;         /* altura fija del carrusel */
+  object-fit: cover;     /* mantiene proporción y evita deformaciones */
+  flex-shrink: 0;
+}
+
+.carrusel button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  font-size: 24px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.carrusel .prev { 
+  left: 10px; 
+}
+
+.carrusel .next { 
+  right: 10px; 
+}
+
+
+/* === MEDIA QUERY PARA HISTORIA CON FOTO + TEXTO === */
+@media (max-width: 768px) {
+  .carta {
+    flex-direction: column;  /* imagen arriba, texto abajo */
+    gap: 10px;
+    align-items: center;
+  }
+
+  .carta img {
+    width: 90%;       /* ancho proporcional al contenedor */
+    height: auto;     /* mantiene proporción */
+    margin-left: 0;   /* elimina margen fijo */
+  }
+
+  #historia p {
+    margin-left: 5%;    /* márgenes laterales proporcionales */
+    margin-right: 5%;
+    padding: 10px;      /* padding más pequeño */
+    font-size: 0.9rem;  /* texto más pequeño */
+    text-align: justify; 
+  }
+}
+
+/* Tablets entre 769px y 1080px */
+@media (min-width: 769px) and (max-width: 1080px) {
+  .carta {
+    flex-direction: row; /* imagen al lado del texto */
+    gap: 15px;
+    align-items: flex-start;
+  }
+
+  .carta img {
+    width: 45%;        /* ocupa menos espacio que el texto */
+    height: auto;
+    margin-left: 0;
+  }
+
+  #historia p {
+    margin-left: 7%;
+    margin-right: 7%;
+    font-size: 1rem;
+    padding: 1rem;
+  }
+}
+
+
