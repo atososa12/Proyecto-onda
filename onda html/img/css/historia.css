@@ -78,6 +78,17 @@ h4{
   font-style:italic;
 }
 
+.video-historia {
+  display: block;
+  margin: 20px auto;
+  width: 100%;        /* ocupa el ancho disponible */
+  max-width: 500px;   /* límite de ancho */
+  height: 400px;      /* 🔹 controlás qué tan "corto" se ve */
+  object-fit: contain; /* muestra todo el video sin recortar */
+  border-radius: 12px;
+  background: #000;   /* fondo si sobra espacio */
+}
+
 .carrusel {
   position: relative;
   width: 600px;
