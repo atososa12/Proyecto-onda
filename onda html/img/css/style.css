@@ -23,7 +23,7 @@ header {
   justify-content: space-between;
   background: #0033668f;
   padding: 15px 40px;
-  z-index: 10;
+  z-index: 10; 
 }
 
 header img {
