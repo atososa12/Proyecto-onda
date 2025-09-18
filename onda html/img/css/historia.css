@@ -75,7 +75,7 @@ h1{
   }
 }
 
-/* Tablets entre 769px y 1024px */
+/* Tablets entre 769px y 1080px */
 @media (min-width: 769px) and (max-width: 1080px) {
   .carta {
     flex-direction: row; /* imagen al lado del texto */
