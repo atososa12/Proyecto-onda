@@ -183,7 +183,7 @@ footer {
 }
 
 /* Tablets entre 769px y 1024px */
-@media (min-width: 769px) and (max-width: 1024px) {
+@media (min-width: 769px) and (max-width: 1080px) {
   body {
     font-size: 15px;        /* tamaño intermedio */
     padding-left: 4%;
