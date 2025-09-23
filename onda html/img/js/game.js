@@ -14,6 +14,9 @@ const menuStart = document.getElementById("menuStart");
 const menuHow = document.getElementById("menuHow");
 const menuCredits = document.getElementById("menuCredits");
 
+const creditsPanel = document.getElementById("creditsPanel");
+const closeCredits = document.getElementById("closeCredits");
+
 const mobilePad = {
   left: document.getElementById("leftBtn"),
   right: document.getElementById("rightBtn"),
@@ -74,12 +77,12 @@ const assets = {
     pista: new Image(),
   },
   sounds: {
-    crash: new Audio("sounds/crash.mp3"),
-    point: new Audio("sounds/point.mp3"),
-    move: new Audio("sounds/move.mp3"),
-    bg: new Audio("sounds/bg.mp3"),
-    win: new Audio("sounds/win.mp3"),
-    lose: new Audio("sounds/lose.mp3"),
+    crash: new Audio("sounds/choque.mp3"),
+    point: new Audio("sounds/punto.mp3"),
+    move: new Audio("sounds/mover.mp3"),
+    bg: new Audio("sounds/sonidofondo.mp3"),
+    win: new Audio("sounds/ganar.mp3"),
+    lose: new Audio("sounds/perder.mp3"),
   },
   loaded: false,
   muted: false,
@@ -110,7 +113,7 @@ Promise.all(
   assets.loaded = true;
 });
 
-// ====== Pista y carriles ======
+// ====== Pista ======
 let pistaY = 0;
 let pistaSpeed = 3;
 
@@ -120,17 +123,7 @@ function getTrackBounds() {
   return { pistaX, pistaWidth, minX: pistaX, maxX: pistaX + pistaWidth - bus.w };
 }
 
-function getLanes() {
-  const { pistaX, pistaWidth } = getTrackBounds();
-  let numLanes = 3;
-  if (canvas.width < 500) numLanes = 2;
-  else if (canvas.width < 800) numLanes = 2.5;
-
-  const laneWidth = pistaWidth / numLanes;
-  return Array.from({ length: Math.floor(numLanes) }, (_, i) => pistaX + i * laneWidth + laneWidth / 2 - 25);
-}
-
-// ====== Entrada: Teclado ======
+// ====== Entrada ======
 window.addEventListener("keydown", (e) => {
   if (["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown", " "].includes(e.key)) e.preventDefault();
   keys[e.key] = true;
@@ -147,7 +140,6 @@ window.addEventListener("keydown", (e) => {
 });
 window.addEventListener("keyup", (e) => (keys[e.key] = false));
 
-// ====== Entrada: Mouse/Touch ======
 function bindPad(btn, keyName) {
   const on = () => (keys[keyName] = true);
   const off = () => (keys[keyName] = false);
@@ -180,12 +172,25 @@ muteBtn.addEventListener("click", () => {
 });
 menuStart.addEventListener("click", () => startGame());
 menuHow.addEventListener("click", () => {
-  showToast("Evita los autos. Flechas o controles táctiles. Sobrevive 1:30.");
+  const instrucciones = [
+    "1️⃣ Usa las flechas del teclado o los botones táctiles para mover el bus.",
+    "2️⃣ Evita los autos que aparecen en los carriles.",
+    "3️⃣ Sobrevive durante 1 minuto y 30 segundos sin chocar.",
+    "4️⃣ Puedes pausar el juego con el botón 'Pausa'.",
+    "5️⃣ Presiona Enter o haz clic en el botón 'jugar' para comenzar o reiniciar con el botón 'reiniciar'.",
+  ].join("\n");
+  showToast(instrucciones, 5000);
 });
 menuCredits.addEventListener("click", () => {
-  showToast("Homenaje a los choferes de ONDA. Arte y SFX personalizables en /img y /sounds.");
+  menu.style.display = "none";
+  creditsPanel.style.display = "flex";
+});
+closeCredits.addEventListener("click", () => {
+  creditsPanel.style.display = "none";
+  menu.style.display = "flex";
 });
 
+// ====== Mute UI ======
 function updateMuteUI() {
   muteBtn.textContent = assets.muted ? "🔇" : "🔊";
   muteBtn.setAttribute("aria-pressed", assets.muted ? "true" : "false");
@@ -196,7 +201,7 @@ function updateMuteUI() {
   }
 }
 
-// ====== Lógica de juego ======
+// ====== Juego ======
 function drawPista() {
   const sky = ctx.createLinearGradient(0, 0, 0, canvas.height);
   sky.addColorStop(0, "#66ccff");
@@ -205,41 +210,15 @@ function drawPista() {
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
   const { pistaX, pistaWidth } = getTrackBounds();
+  ctx.drawImage(assets.images.pista, pistaX, pistaY, pistaWidth, canvas.height);
+  ctx.drawImage(assets.images.pista, pistaX, pistaY - canvas.height, pistaWidth, canvas.height);
 
-  if (assets.images.pista.complete && assets.images.pista.naturalWidth > 0) {
-    ctx.drawImage(assets.images.pista, pistaX, pistaY, pistaWidth, canvas.height);
-    ctx.drawImage(assets.images.pista, pistaX, pistaY - canvas.height, pistaWidth, canvas.height);
-  } else {
-    ctx.fillStyle = "#2b2f36";
-    ctx.fillRect(pistaX, 0, pistaWidth, canvas.height);
-    ctx.strokeStyle = "rgba(255,255,255,.45)";
-    ctx.lineWidth = 4;
-    const lanesX = getLanes().map((x) => x + 25);
-    ctx.setLineDash([24, 24]);
-        lanesX.slice(1, -1).forEach((lx) => {
-      ctx.beginPath();
-      ctx.moveTo(lx, 0);
-      ctx.lineTo(lx, canvas.height);
-      ctx.stroke();
-    });
-    ctx.setLineDash([]);
-  }
-
-  // Scroll
   pistaY += pistaSpeed;
   if (pistaY >= canvas.height) pistaY = 0;
 }
 
 function drawBus() {
-  if (assets.images.bus.complete && assets.images.bus.naturalWidth > 0) {
-    ctx.drawImage(assets.images.bus, bus.x, bus.y, bus.w, bus.h);
-  } else {
-    // Fallback: rectángulo estilizado
-    ctx.fillStyle = "#ffd166";
-    ctx.fillRect(bus.x, bus.y, bus.w, bus.h);
-    ctx.fillStyle = "#333";
-    ctx.fillRect(bus.x + 8, bus.y + 10, bus.w - 16, 14);
-  }
+  ctx.drawImage(assets.images.bus, bus.x, bus.y, bus.w, bus.h);
 }
 
 function drawObstacle(o) {
@@ -265,21 +244,30 @@ function moveBus() {
   bus.y = clamp(bus.y, 0, canvas.height - bus.h);
 }
 
+// Obstáculos con distribución aleatoria
 function spawnObstacle() {
-  const lanes = getLanes();
+  const { minX, maxX } = getTrackBounds();
   const imgs = [assets.images.autoRed, assets.images.autoBlue];
-  const minDistance = canvas.width < 500 ? 80 : 50;
-  const freeLanes = lanes.filter(
-    (l) => !obstacles.some((o) => Math.abs(o.x - l) < minDistance && o.y < 150)
+  const minDistance = 60;
+  const candidateX = Math.random() * (maxX - minX) + minX;
+
+  const tooClose = obstacles.some(
+    (o) => Math.abs(o.x - candidateX) < minDistance && o.y < 150
   );
-  if (freeLanes.length === 0) return;
-  const x = freeLanes[Math.floor(Math.random() * freeLanes.length)];
+  if (tooClose) return;
+
   const img = imgs[Math.floor(Math.random() * imgs.length)];
-  obstacles.push({ x, y: -90, w: 50, h: 90, img, color: "#ff6b6b" });
+  obstacles.push({
+    x: candidateX,
+    y: -90,
+    w: 50,
+    h: 90,
+    img,
+    color: "#ff6b6b",
+  });
 }
 
 function updateObstacles() {
-  // Probabilidad de spawn adaptativa por ancho
   const spawnProb = canvas.width < 500 ? 0.02 : canvas.width < 800 ? 0.035 : 0.05;
   if (Math.random() < spawnProb) spawnObstacle();
 
@@ -289,7 +277,6 @@ function updateObstacles() {
   for (const o of obstacles) {
     o.y += speed;
     drawObstacle(o);
-    // Colisión AABB
     if (
       bus.x + padding < o.x + o.w - padding &&
       bus.x + bus.w - padding > o.x + padding &&
@@ -302,7 +289,6 @@ function updateObstacles() {
     }
   }
 
-  // Filtrar y puntuar
   const before = obstacles.length;
   obstacles = obstacles.filter((o) => o.y <= canvas.height);
   const cleared = before - obstacles.length;
@@ -329,7 +315,7 @@ function updateTimer(now) {
   }
 }
 
-// ====== Ciclo principal ======
+// Ciclo principal
 let rafId = 0;
 function loop(now) {
   if (!gameStarted || paused) {
@@ -352,14 +338,14 @@ function loop(now) {
   }
 }
 
-// ====== Flujo de juego ======
+// 🚦 Flujo de juego
 function startGame() {
   if (!assets.loaded) showToast("Cargando recursos…");
   gameStarted = true;
   paused = false;
   menu.style.display = "none";
+  creditsPanel.style.display = "none";
   resetRunCore();
-  // Reproducir bg si no está silenciado (requiere gesto de usuario)
   if (!assets.muted) assets.sounds.bg.play().catch(() => {});
   cancelAnimationFrame(rafId);
   rafId = requestAnimationFrame(loop);
@@ -370,6 +356,7 @@ function resetGame() {
   gameStarted = true;
   paused = false;
   menu.style.display = "none";
+  creditsPanel.style.display = "none";
   resetRunCore();
   if (!assets.muted) {
     assets.sounds.bg.currentTime = 0;
@@ -391,22 +378,6 @@ function resetRunCore() {
   bus.x = canvas.width / 2 - bus.w / 2;
   bus.y = canvas.height - bus.h - 20;
 
-  // Semilla inicial: al menos un auto por carril disponible
-  const lanes = getLanes();
-  const imgs = [assets.images.autoRed, assets.images.autoBlue];
-
-  // Limitar semilla en pantallas chicas: como mucho 1 por carril real
-  lanes.forEach((lane) => {
-    obstacles.push({
-      x: lane,
-      y: -Math.random() * 200,
-      w: 50,
-      h: 90,
-      img: imgs[Math.floor(Math.random() * imgs.length)],
-      color: "#4dd0e1",
-    });
-  });
-
   startTimer();
   updateHUD();
 }
@@ -417,10 +388,8 @@ function togglePause() {
   pauseBtn.textContent = paused ? "Reanudar" : "Pausa";
   if (paused) {
     if (!assets.muted) assets.sounds.bg.pause();
-    // Congelar temporizador (ajustar startedAt para compensar pausa)
     remainingMs = Math.max(0, remainingMs);
   } else {
-    // Reanudar temporizador alineando startedAt
     startedAt = performance.now() - (GAME_DURATION_MS - remainingMs);
     if (!assets.muted) assets.sounds.bg.play().catch(() => {});
   }
@@ -437,11 +406,9 @@ function endRun(isVictory) {
 }
 
 function drawEndOverlay() {
-  // Sombreado
   ctx.fillStyle = "rgba(0,0,0,0.7)";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-  // Texto
   ctx.fillStyle = "white";
   ctx.textAlign = "center";
   ctx.textBaseline = "middle";
@@ -455,25 +422,28 @@ function drawEndOverlay() {
   ctx.fillText("Enter o click para reiniciar", canvas.width / 2, canvas.height * 0.56);
 }
 
-// ====== Pantalla inicial animada (canvas detrás del menú) ======
+// Pantalla inicial animada
 function showIdleScreen() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   drawPista();
+  bus.x = canvas.width / 2 - bus.w / 2 + Math.sin(performance.now() / 600) * 5;
   drawBus();
-  // Oscilar el bus sutilmente
-  bus.x += Math.sin(performance.now() / 600) * 0.5;
   if (!gameStarted) requestAnimationFrame(showIdleScreen);
 }
 showIdleScreen();
 
-// ====== Accesibilidad: foco y atajos ======
+// Accesibilidad
 window.addEventListener("keydown", (e) => {
   if (e.key === "Escape") {
-    // Abrir menú solo si no está en game over
-    if (!gameOver && gameStarted) togglePause();
+    if (creditsPanel.style.display === "flex") {
+      creditsPanel.style.display = "none";
+      menu.style.display = "flex";
+    } else if (!gameOver && gameStarted) {
+      togglePause();
+    }
   }
 });
 
-// ====== Estado inicial UI ======
+// Estado inicial UI
 updateHUD();
 updateMuteUI();
