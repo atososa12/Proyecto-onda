@@ -76,6 +76,7 @@ nav ul li ul li a {
   position: relative;
   height: 100vh; 
   overflow: hidden;
+  margin-top: -10px;
 }
 
 .hero img {
