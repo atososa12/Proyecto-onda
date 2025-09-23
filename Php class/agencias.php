@@ -7,7 +7,7 @@ class Agencia {
     private string $nombre;
     private string $link_a_foto_agencia;
 
-    // Ceste es el constructor 
+    // este es el constructor 
     public function __construct($id_agencia, $ubicacion, $nombre, $foto) {
         $this->id_agencia = $id_agencia;
         $this->ubicacion = $ubicacion;
