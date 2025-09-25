@@ -143,16 +143,16 @@ text-decoration: none;
 /* Footer */
 footer {
   background: #0033668f;
-  display: flex;           /* pone imagen y texto en línea */
-  align-items: center;     /* centra verticalmente */
-  justify-content: center; /* si querés centrar todo horizontalmente */
+  display: flex;           
+  align-items: center;     
+  justify-content: center; 
   padding: 20px;
   font-size: 14px;
-  gap: 10px;               /* espacio entre imagen y texto */
+  gap: 10px;               
 }
 
 footer img {
-  height: 30px;            /* tamaño del logo */
+  height: 30px;            
 }
 
 
@@ -163,25 +163,25 @@ footer img {
 /* Celulares hasta 768px */
 @media (max-width: 768px) {
   body {
-    font-size: 14px;        /* texto más pequeño */
-    padding-left: 3%;       /* márgenes más chicos */
+    font-size: 14px;        
+    padding-left: 3%;       
     padding-right: 3%;
-    padding-top: 70px;      /* ajusta header si es más pequeño */
+    padding-top: 70px;      
   }
 
   header {
-    flex-direction: column;  /* header vertical */
+    flex-direction: column;  
     align-items: flex-start;
     padding: 10px 20px;
   }
 
   header img {
-    height: 40px;           /* logo más pequeño */
+    height: 40px;          
     margin-bottom: 10px;
   }
 
   nav ul {
-    flex-direction: column;  /* menú vertical */
+    flex-direction: column;  
     width: 100%;
     gap: 10px;
   }
@@ -195,14 +195,14 @@ footer img {
 /* Tablets entre 769px y 1080px */
 @media (min-width: 769px) and (max-width: 1080px) {
   body {
-    font-size: 15px;        /* tamaño intermedio */
+    font-size: 15px;       
     padding-left: 4%;
     padding-right: 4%;
     padding-top: 80px;
   }
 
   header {
-    flex-direction: row;    /* header horizontal */
+    flex-direction: row;   
     padding: 15px 30px;
   }
 
