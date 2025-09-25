@@ -1,0 +1,9 @@
+DirectoryIndex index.php index.html index.htm
+Options -Indexes
+
+<FilesMatch "\.(env|sql)$">
+  Require all denied
+</FilesMatch>
+
+RewriteEngine On
+RewriteRule ^app/ - [F,L]
