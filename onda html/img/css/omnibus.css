@@ -1,0 +1,85 @@
+.onda-titulo {
+  text-align: center;
+  font-size: 2rem;
+  margin: 30px 0;
+  color: #222;
+}
+
+.onda-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 0 20px;
+}
+
+/* ===== CARD ===== */
+.onda-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%; /* todas las cards misma altura */
+}
+
+.onda-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+/* Imagen de la card */
+.onda-card img {
+  width: 100%;
+  height: 180px;     /* altura uniforme */
+  border-radius: 8px;
+  margin-bottom: 12px;
+  object-fit: cover; /* recorta para mantener proporción */
+}
+
+/* ===== TEXTO ===== */
+.modelo {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.num {
+  color: #555;
+  margin-bottom: 10px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul li {
+  margin-bottom: 6px;
+  color: #333;
+}
+
+strong {
+  color: #000;
+}
+
+/* ===== COLORES PRINCIPALES ===== */
+
+/* Azul */
+.borde-azul { border-left: 5px solid #1d4ed8; }
+.azul { color: #1d4ed8; }
+
+/* Rojo */
+.borde-rojo { border-left: 5px solid #dc2626; }
+.rojo { color: #dc2626; }
+
+/* Plateado (gris metálico con brillo) */
+.borde-plateado { border-left: 5px solid #a0a0a0; }
+.plateado { 
+  color: #6b7280; 
+  font-weight: bold;
+  text-shadow: 0 1px 2px rgba(255,255,255,0.7);
+}

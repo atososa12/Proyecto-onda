@@ -1,7 +1,8 @@
 h3 {
-  color: red;
+  color: whitesmoke;
   font-size: 48px;
   text-align: center;
+  -webkit-text-stroke: 2px red; 
 }
 .intro-galeria {
   font-size: 1.2rem;             
