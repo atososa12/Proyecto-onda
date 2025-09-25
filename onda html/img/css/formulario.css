@@ -1,4 +1,4 @@
-/* FORMULARIO */
+
 .formulario-section {
   display: flex;
   justify-content: center;
@@ -40,7 +40,7 @@ form textarea {
   width: 100%;
   padding: 12px;
   margin-bottom: 20px;
-  border: 2px solid #003366; /* Azul */
+  border: 2px solid #003366; 
   border-radius: 8px;
   font-size: 16px;
   box-sizing: border-box;

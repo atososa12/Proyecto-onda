@@ -81,12 +81,12 @@ h4{
 .video-historia {
   display: block;
   margin: 20px auto;
-  width: 100%;        /* ocupa el ancho disponible */
-  max-width: 500px;   /* límite de ancho */
-  height: 400px;      /* 🔹 controlás qué tan "corto" se ve */
-  object-fit: contain; /* muestra todo el video sin recortar */
+  width: 100%;        
+  max-width: 500px;   
+  height: 400px;      
+  object-fit: contain; 
   border-radius: 12px;
-  background: #000;   /* fondo si sobra espacio */
+  background: #000;   
 }
 
 .carrusel {
@@ -104,8 +104,8 @@ h4{
 
 .carrusel-inner img {
   width: 100%;
-  height: 400px;         /* altura fija del carrusel */
-  object-fit: cover;     /* mantiene proporción y evita deformaciones */
+  height: 400px;        
+  object-fit: cover;     
   flex-shrink: 0;
 }
 
@@ -133,22 +133,22 @@ h4{
 /* === MEDIA QUERY PARA HISTORIA CON FOTO + TEXTO === */
 @media (max-width: 768px) {
   .carta {
-    flex-direction: column;  /* imagen arriba, texto abajo */
+    flex-direction: column;  
     gap: 10px;
     align-items: center;
   }
 
   .carta img {
-    width: 90%;       /* ancho proporcional al contenedor */
-    height: auto;     /* mantiene proporción */
-    margin-left: 0;   /* elimina margen fijo */
+    width: 90%;       
+    height: auto;     
+    margin-left: 0;   
   }
 
   #historia p {
-    margin-left: 5%;    /* márgenes laterales proporcionales */
+    margin-left: 5%;    
     margin-right: 5%;
-    padding: 10px;      /* padding más pequeño */
-    font-size: 0.9rem;  /* texto más pequeño */
+    padding: 10px;      
+    font-size: 0.9rem;  
     text-align: justify; 
   }
 }
@@ -156,13 +156,13 @@ h4{
 /* Tablets entre 769px y 1080px */
 @media (min-width: 769px) and (max-width: 1080px) {
   .carta {
-    flex-direction: row; /* imagen al lado del texto */
+    flex-direction: row; 
     gap: 15px;
     align-items: flex-start;
   }
 
   .carta img {
-    width: 45%;        /* ocupa menos espacio que el texto */
+    width: 45%;        
     height: auto;
     margin-left: 0;
   }
