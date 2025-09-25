@@ -22,7 +22,7 @@ class Database {
 
         $host = $_ENV['DB_HOST']      ?? '127.0.0.1';
         $port = $_ENV['DB_PORT']      ?? '3306';
-        $db   = $_ENV['DB_NAME']      ?? 'TransporteHistorico';
+        $db   = $_ENV['DB_NAME']      ?? 'if0_39901650_onda';
         $user = $_ENV['DB_USER']      ?? 'root';
         $pass = $_ENV['DB_PASSWORD']  ?? '';
         $ch   = $_ENV['DB_CHARSET']   ?? 'utf8mb4';
