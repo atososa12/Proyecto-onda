@@ -144,10 +144,17 @@ text-decoration: none;
 footer {
   background: #0033668f;
   text-align: center;
+  display: flex;           /* pone imagen y texto en línea */
+  align-items: center;     /* centra verticalmente */
+  justify-content: center; /* si querés centrar todo horizontalmente */
   padding: 20px;
   font-size: 14px;
+  gap: 10px;               /* espacio entre imagen y texto */
 }
 
+footer img {
+  height: 30px;            /* tamaño del logo */
+}
 
 /* === MEDIA QUERIES BÁSICAS === */
 
