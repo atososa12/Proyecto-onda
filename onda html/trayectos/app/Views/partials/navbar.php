@@ -4,7 +4,7 @@ $BASE = rtrim(dirname($_SERVER['PHP_SELF'] ?? '/'), '/');
 if ($BASE === '/') $BASE = '';
 
 $NAV_ITEMS = [
-  ['href' => $BASE . '/','label' => 'Inicio'],
+  ['href' => $BASE . '/index.php','label' => 'Inicio'],
   ['href' => $BASE . '/?r=trayecto/index','label' => 'Quiénes somos'],
   ['href' => $BASE . '/?r=agencia/index','label' => 'Agencias'],
   ['href' => $BASE . '/?r=omnibus/index','label' => 'Galería'],
